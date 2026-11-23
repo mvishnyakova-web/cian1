@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Циан · Аукцион</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-label="Описание прототипа">
+        <p class="eyebrow">Cian lab · мобильный прототип</p>
+        <h1>Квартира<br />на аукционе</h1>
+        <p class="intro-copy">Продажа в один понятный сценарий. Переключайте роли, задавайте условия и делайте ставку.</p>
+        <div class="legend">
+          <span><i class="dot dot-green"></i> интерактивный прототип</span>
+          <span><i class="dot dot-orange"></i> учебные условия</span>
+        </div>
+      </section>
+
+      <section class="phone" aria-label="Прототип приложения Циан">
+        <div class="status-bar"><span>9:41</span><span class="status-icons">●◖▮</span></div>
+        <header class="app-header">
+          <a class="logo" href="#" aria-label="Циан">циан</a>
+          <button class="icon-button" id="helpButton" aria-label="Открыть подсказку">?</button>
+        </header>
+
+        <div class="role-switch" role="tablist" aria-label="Роль в сценарии">
+          <button class="role active" data-role="buyer" role="tab" aria-selected="true">Я покупатель</button>
+          <button class="role" data-role="seller" role="tab" aria-selected="false">Я продаю</button>
+        </div>
+
+        <div id="toast" class="toast" role="status"></div>
+
+        <section id="buyerView" class="view active" aria-label="Сценарий покупателя">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Лот № 328 410</p>
+              <h2>Квартира на Патриарших</h2>
+            </div>
+            <button class="bookmark" aria-label="Добавить в избранное">♡</button>
+          </div>
+
+          <div class="apartment-photo">
+            <img class="apartment-photo-image" src="assets/auction-living-room.jpg" alt="Светлая современная гостиная с диваном, столом, окнами и растением" />
+            <span class="photo-label">9 фото</span>
+          </div>
+
+          <div class="property-row">
+            <span>2-комн. · 64 м² · 4/7 этаж</span>
+            <span>м. Маяковская · 7 мин.</span>
+          </div>
+
+          <section class="auction-card" id="auctionCard">
+            <div class="auction-card-top">
+              <span class="auction-chip"><i></i> Аукцион идёт</span>
+              <span class="time" id="auctionTimer">02:18:46</span>
+            </div>
+            <p class="caption">Текущая ставка</p>
+            <div class="price-line"><strong id="currentPrice">12 500 000 ₽</strong><span>3 ставки</span></div>
+            <div class="rule"><span>Шаг ставки</span><b>от 250 000 ₽</b></div>
+            <div class="rule"><span>Аукцион завершится</span><b>сегодня в 20:00</b></div>
+            <button id="openBid" class="primary">Сделать ставку <span>→</span></button>
+          </section>
+
+          <button class="seller-link" id="showSellerFromBuyer">Хотите продать квартиру? <span>Настроить аукцион →</span></button>
+
+          <section class="demo-state" aria-label="Состояние демонстрации">
+            <p>Показать состояние</p>
+            <div class="demo-controls">
+              <button class="state-control active" data-auction-state="open">Аукцион идёт</button>
+              <button class="state-control" data-auction-state="closed">Завершён</button>
+            </div>
+          </section>
+        </section>
+
+        <section id="sellerView" class="view" aria-label="Сценарий продавца">
+          <div id="sellerForm" class="seller-step active">
+            <div class="section-heading seller-title"><div><p class="eyebrow">Продажа квартиры</p><h2>Создадим аукцион</h2></div></div>
+            <div class="steps" aria-label="Шаг 1 из 2"><span class="on"></span><span></span><small>1 из 2</small></div>
+            <div class="seller-property"><div class="mini-photo" role="img" aria-label="Светлая современная гостиная с диваном, столом, окнами и растением"></div><div><b>2-комн. на Патриарших</b><p>64 м² · 4 этаж</p></div><button class="plain-button">Изменить</button></div>
+            <form id="auctionForm">
+              <label>Стартовая цена<input id="startPrice" inputmode="numeric" value="12 000 000" /><span>₽</span></label>
+              <label>Минимальный шаг<input id="bidStep" inputmode="numeric" value="250 000" /><span>₽</span></label>
+              <label>Закончить аукцион<select id="finishTime"><option>Сегодня, 20:00</option><option>Завтра, 12:00</option><option>Завтра, 20:00</option></select></label>
+              <p class="form-note">После первой ставки условия нельзя будет изменить.</p>
+              <button class="primary" type="submit">Проверить условия <span>→</span></button>
+            </form>
+          </div>
+
+          <div id="sellerReview" class="seller-step">
+            <button class="back-button" id="backToForm">←&nbsp; Назад</button>
+            <div class="section-heading seller-title"><div><p class="eyebrow">Почти готово</p><h2>Проверьте условия</h2></div></div>
+            <div class="steps" aria-label="Шаг 2 из 2"><span class="on"></span><span class="on"></span><small>2 из 2</small></div>
+            <section class="review-card"><p class="review-address">2-комн. квартира<br/><b>ул. Спиридоновка, 21</b></p><hr/><div><span>Стартовая цена</span><b id="reviewPrice">12 000 000 ₽</b></div><div><span>Минимальный шаг</span><b id="reviewStep">250 000 ₽</b></div><div><span>Завершение</span><b id="reviewTime">Сегодня, 20:00</b></div></section>
+            <div class="info-callout"><span>i</span><p>Объявление появится в поиске сразу после публикации.</p></div>
+            <button class="primary" id="publishAuction">Опубликовать аукцион <span>→</span></button>
+          </div>
+
+          <div id="sellerPublished" class="seller-step published">
+            <div class="published-icon" aria-label="Празднуем публикацию">🎉</div><p class="eyebrow">Аукцион опубликован</p><h2>Покупатели уже могут делать ставки</h2><p class="muted">Мы отправим уведомление, когда появится первая ставка.</p>
+            <section class="live-stat"><span>Текущая ставка</span><b>12 500 000 ₽</b><small>3 ставки · завершится сегодня в 20:00</small></section>
+            <button class="primary" id="goToBuyer">Посмотреть объявление <span>→</span></button>
+            <button class="secondary" id="newAuction">Создать ещё один аукцион</button>
+          </div>
+        </section>
+
+        <nav class="bottom-nav" aria-label="Основная навигация"><a href="#" class="active">⌂<small>Главная</small></a><a href="#">⌕<small>Поиск</small></a><a href="#">♡<small>Избранное</small></a><a href="#">◉<small>Профиль</small></a></nav>
+
+        <div id="bidSheet" class="sheet-overlay" aria-hidden="true">
+          <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="bidTitle">
+            <div class="drag-handle"></div>
+            <button class="close-sheet" id="closeBid" aria-label="Закрыть">×</button>
+            <p class="eyebrow">Ваша ставка</p><h2 id="bidTitle">Предложите цену</h2><p class="sheet-copy">Минимальная ставка — <b>12 750 000 ₽</b></p>
+            <label class="bid-input">₽<input id="bidValue" inputmode="numeric" value="12 750 000" aria-label="Сумма ставки" /></label>
+            <p id="bidError" class="input-error">Минимальная ставка — 12 750 000 ₽</p>
+            <div class="quick-bids"><button data-bid="12750000">12,75 млн</button><button data-bid="13000000">13 млн</button><button data-bid="13500000">13,5 млн</button></div>
+            <button id="placeBid" class="primary">Подтвердить ставку <span>→</span></button>
+            <button id="triggerError" class="text-button">Показать ошибку ответа</button>
+          </section>
+        </div>
+
+        <div id="waitingSheet" class="sheet-overlay" aria-hidden="true"><section class="sheet status-sheet" role="dialog" aria-modal="true"><div class="loader"></div><h2>Проверяем ставку</h2><p>Это займёт несколько секунд. Не закрывайте приложение.</p></section></div>
+        <div id="resultSheet" class="sheet-overlay" aria-hidden="true"><section class="sheet status-sheet" role="dialog" aria-modal="true"><div id="resultIcon" class="result-icon" aria-label="Ставка принята">🎉</div><p class="eyebrow" id="resultEyebrow">Ставка принята</p><h2 id="resultTitle">Вы лидируете</h2><p id="resultCopy">Ваша ставка 12 750 000 ₽ сейчас самая высокая.</p><button id="resultAction" class="primary">Понятно</button></section></div>
+        <div id="helpSheet" class="sheet-overlay" aria-hidden="true"><section class="sheet help-sheet" role="dialog" aria-modal="true"><button class="close-sheet" id="closeHelp" aria-label="Закрыть">×</button><p class="eyebrow">Как смотреть прототип</p><h2>Две роли — один аукцион</h2><ol><li>В роли продавца задайте условия и опубликуйте лот.</li><li>Вернитесь к покупателю и предложите цену.</li><li>Сумма ниже 12,75 млн покажет валидацию. Кнопка «Показать ошибку» — сбой сервиса.</li><li>Внизу карточки можно завершить аукцион.</li></ol></section></div>
+      </section>
+    </main>
+    <script src="app.js?v=20261123-2"></script>
+  </body>
+</html>
