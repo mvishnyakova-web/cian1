@@ -44,9 +44,9 @@
             <button class="bookmark" aria-label="Добавить в избранное">♡</button>
           </div>
 
-          <div class="apartment-photo" role="img" aria-label="Светлая современная гостиная">
+          <div class="apartment-photo">
+            <img class="apartment-photo-image" src="assets/auction-living-room.jpg" alt="Светлая современная гостиная с диваном, столом, окнами и растением" />
             <span class="photo-label">9 фото</span>
-            <span class="sun"></span><span class="window"></span><span class="sofa"></span><span class="table"></span><span class="plant">⌇</span>
           </div>
 
           <div class="property-row">
@@ -81,7 +81,7 @@
           <div id="sellerForm" class="seller-step active">
             <div class="section-heading seller-title"><div><p class="eyebrow">Продажа квартиры</p><h2>Создадим аукцион</h2></div></div>
             <div class="steps" aria-label="Шаг 1 из 2"><span class="on"></span><span></span><small>1 из 2</small></div>
-            <div class="seller-property"><div class="mini-photo"></div><div><b>2-комн. на Патриарших</b><p>64 м² · 4 этаж</p></div><button class="plain-button">Изменить</button></div>
+            <div class="seller-property"><div class="mini-photo" role="img" aria-label="Светлая современная гостиная с диваном, столом, окнами и растением"></div><div><b>2-комн. на Патриарших</b><p>64 м² · 4 этаж</p></div><button class="plain-button">Изменить</button></div>
             <form id="auctionForm">
               <label>Стартовая цена<input id="startPrice" inputmode="numeric" value="12 000 000" /><span>₽</span></label>
               <label>Минимальный шаг<input id="bidStep" inputmode="numeric" value="250 000" /><span>₽</span></label>
@@ -101,7 +101,7 @@
           </div>
 
           <div id="sellerPublished" class="seller-step published">
-            <div class="published-icon">✓</div><p class="eyebrow">Аукцион опубликован</p><h2>Покупатели уже могут делать ставки</h2><p class="muted">Мы отправим уведомление, когда появится первая ставка.</p>
+            <div class="published-icon" aria-label="Празднуем публикацию">🎉</div><p class="eyebrow">Аукцион опубликован</p><h2>Покупатели уже могут делать ставки</h2><p class="muted">Мы отправим уведомление, когда появится первая ставка.</p>
             <section class="live-stat"><span>Текущая ставка</span><b>12 500 000 ₽</b><small>3 ставки · завершится сегодня в 20:00</small></section>
             <button class="primary" id="goToBuyer">Посмотреть объявление <span>→</span></button>
             <button class="secondary" id="newAuction">Создать ещё один аукцион</button>
