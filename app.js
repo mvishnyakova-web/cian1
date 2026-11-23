@@ -42,7 +42,7 @@ function formatPrice(value) {
 
 function showResult(type) {
   const success = type === 'success';
-  $$('#resultIcon').textContent = success ? '✓' : '!';
+  $$('#resultIcon').textContent = success ? '🎉' : '!';
   $$('#resultIcon').classList.toggle('error', !success);
   $$('#resultEyebrow').textContent = success ? 'Ставка принята' : 'Не удалось отправить ставку';
   $$('#resultTitle').textContent = success ? 'Вы лидируете' : 'Попробуйте ещё раз';

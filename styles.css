@@ -18,3 +18,9 @@ button,input,select { font:inherit; } button { cursor:pointer; border:0; } .page
 #bidSheet { background:transparent; }
 .apartment-photo-image { display:block; width:100%; height:100%; object-fit:cover; }
 .mini-photo { background-image:url("assets/auction-living-room.jpg"); background-size:cover; background-position:center; }
+.demo-state { padding-top:18px; }
+.demo-state p { margin-bottom:12px; }
+.demo-controls { gap:12px; }
+.state-control { min-height:48px; padding:11px 20px; font-size:12px; }
+#resultSheet { background:transparent; }
+.result-icon { font-size:28px; background:#eaf8f1; }
