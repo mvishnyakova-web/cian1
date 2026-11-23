@@ -24,3 +24,6 @@ button,input,select { font:inherit; } button { cursor:pointer; border:0; } .page
 .state-control { min-height:48px; padding:11px 20px; font-size:12px; }
 #resultSheet { background:transparent; }
 .result-icon { font-size:28px; background:#eaf8f1; }
+
+.scenario-map-link { display:inline-flex; align-items:center; gap:9px; margin-top:27px; color:var(--deep); font-size:13px; font-weight:800; text-decoration:none; border-bottom:1px solid #a8c9bc; padding-bottom:4px; }
+.scenario-map-link span { font-size:19px; line-height:12px; color:var(--green); }

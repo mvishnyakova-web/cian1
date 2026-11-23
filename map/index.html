@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Циан · Карта сценариев аукциона</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header><a class="brand" href="/">циан</a><a class="back" href="/">← Открыть прототип</a></header>
+    <main>
+      <section class="hero"><p class="eyebrow">Cian lab · карта прототипа</p><h1>Сценарии аукциона<br>и измерение фичи</h1><p>Зелёные подписи — цели Яндекс Метрики. Каждая передаёт параметры <code>role</code> и <code>step</code>; в прототипе оставлен номер-заглушка <code>99999999</code>.</p></section>
+      <section class="map-block"><div class="title-row"><div><p class="eyebrow">Сценарии</p><h2>Карта экранов</h2></div><div class="legend"><span><i class="seller-dot"></i>продавец</span><span><i class="buyer-dot"></i>покупатель</span><span><i class="event-dot"></i>цель Метрики</span></div></div>
+        <div class="journey">
+          <div class="lane seller-lane"><span>Продавец</span></div><div class="lane buyer-lane"><span>Покупатель</span></div>
+          <svg class="arrows" viewBox="0 0 1200 580" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#00a878" stroke-width="1.5"/></marker></defs><path d="M205 125H283M490 125H568M775 125H853M956 192V348H1040M853 414H775M568 414H490M283 414H205" marker-end="url(#a)"/></svg>
+          <article class="screen seller"><span class="role">Продавец · conditions</span><div class="phone"><b>Создадим аукцион</b><div class="field">Стартовая цена 12 млн ₽</div><div class="field">Шаг ставки 250 тыс. ₽</div><button>Проверить условия →</button></div><code>auction_screen_view<br>{screen: seller_conditions}</code></article>
+          <article class="screen seller"><span class="role">Продавец · review</span><div class="phone"><p>Почти готово</p><b>Проверьте условия</b><div class="card">12 000 000 ₽<br><em>Шаг 250 000 ₽</em></div><button>Опубликовать →</button></div><code>auction_screen_view<br>{screen: seller_review}</code></article>
+          <article class="screen seller"><span class="role">Продавец · published</span><div class="phone center"><strong>✦</strong><p>Аукцион опубликован</p><b>Покупатели могут делать ставки</b></div><code>auction_screen_view<br>{screen: seller_published}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · listing</span><div class="phone"><div class="photo"></div><b>Квартира на Патриарших</b><div class="auction">Аукцион идёт<strong>12 500 000 ₽</strong><button>Сделать ставку →</button></div></div><code>auction_screen_view<br>{screen: buyer_listing}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · bid_form</span><div class="phone"><p>Ваша ставка</p><b>Предложите цену</b><div class="field">₽ 12 750 000</div><button>Подтвердить →</button></div><code>auction_screen_view<br>{screen: buyer_bid_form}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · bid_invalid</span><div class="phone"><p>Ваша ставка</p><b>Предложите цену</b><div class="field invalid">₽ 12 600 000</div><small>Минимальная ставка — 12 750 000 ₽</small></div><code>auction_screen_view<br>{screen: buyer_bid_invalid}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · bid_waiting</span><div class="phone center"><i class="loader"></i><b>Проверяем ставку</b><p>Несколько секунд</p></div><code>auction_screen_view<br>{screen: buyer_bid_waiting}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · success</span><div class="phone center"><strong>✓</strong><p>Ставка принята</p><b>Вы лидируете</b></div><code>auction_screen_view<br>{screen: buyer_bid_success}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · error</span><div class="phone center error"><strong>!</strong><p>Не удалось отправить</p><b>Попробуйте ещё раз</b></div><code>auction_screen_view<br>{screen: buyer_bid_error}</code></article>
+          <article class="screen buyer"><span class="role">Покупатель · closed</span><div class="phone"><div class="photo dim"></div><b>Квартира на Патриарших</b><div class="auction closed">Аукцион завершён<strong>12 500 000 ₽</strong></div></div><code>auction_screen_view<br>{screen: buyer_auction_closed}</code></article>
+          <span class="event e1">auction_conditions_checked</span><span class="event e2">auction_published</span><span class="event e3">auction_listing_opened</span><span class="event e4">auction_bid_sheet_opened</span><span class="event e5">auction_bid_sent</span><span class="event e6">auction_bid_accepted / failed</span><span class="event e7">auction_state_changed</span><span class="event e8">auction_bid_value_invalid</span>
+        </div>
+        <p class="note">В коде экраны размечены общей целью <code>auction_screen_view</code>, а переходы — отдельными целями выше. Возврат к настройке отправляет <code>auction_review_returned</code>, закрытие формы ставки — <code>auction_bid_cancelled</code>.</p>
+      </section>
+      <section class="metrics"><p class="eyebrow">Проверка фичи</p><h2>Что измеряем после запуска</h2><div class="metric-grid">
+        <article><span>01</span><h3>Аукцион опубликован</h3><b>Цель: ≥ 55%</b><p><strong>Формула:</strong> уникальные <code>auction_published</code> / уникальные <code>auction_screen_view</code> с <code>screen=seller_conditions</code> × 100%.</p><small>Понятны ли условия и достаточно ли мотивации завершить настройку.</small></article>
+        <article><span>02</span><h3>Конверсия в ставку</h3><b>Цель: ≥ 12%</b><p><strong>Формула:</strong> уникальные <code>auction_bid_sent</code> / уникальные просмотры <code>buyer_listing</code> × 100%.</p><small>Главный сигнал интереса к механике аукциона на карточке квартиры.</small></article>
+        <article><span>03</span><h3>Ставка принята</h3><b>Цель: ≥ 92%</b><p><strong>Формула:</strong> <code>auction_bid_accepted</code> / <code>auction_bid_sent</code> × 100%.</p><small>Отделяет UX-конверсию от технических проблем размещения ставки.</small></article>
+        <article><span>04</span><h3>Ошибки суммы</h3><b>Цель: ≤ 8%</b><p><strong>Формула:</strong> уникальные <code>auction_bid_value_invalid</code> / уникальные <code>auction_bid_sheet_opened</code> × 100%.</p><small>Проверяет, понимает ли пользователь минимальный порог и шаг ставки.</small></article>
+      </div></section>
+    </main>
+  </body>
+</html>
